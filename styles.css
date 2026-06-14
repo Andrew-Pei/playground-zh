@@ -16,7 +16,7 @@ limitations under the License.
 /* General Type */
 
 body {
-  font-family: "Helvetica", "Arial", sans-serif;
+  font-family: "Helvetica", "Arial", "Microsoft YaHei", "PingFang SC", sans-serif;
   background-color: #f7f7f7;
 }
 
@@ -550,7 +550,7 @@ g.column rect {
 }
 
 #main-part .basic-button {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Roboto", "Helvetica", "Arial", "Microsoft YaHei", "PingFang SC", sans-serif;
   margin-top: 25px;
   height: 34px;
   margin-right: 0;

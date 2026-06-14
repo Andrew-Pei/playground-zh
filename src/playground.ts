@@ -73,21 +73,21 @@ let INPUTS: {[name: string]: InputFeature} = {
 };
 
 let HIDABLE_CONTROLS = [
-  ["Show test data", "showTestData"],
-  ["Discretize output", "discretize"],
-  ["Play button", "playButton"],
-  ["Step button", "stepButton"],
-  ["Reset button", "resetButton"],
-  ["Learning rate", "learningRate"],
-  ["Activation", "activation"],
-  ["Regularization", "regularization"],
-  ["Regularization rate", "regularizationRate"],
-  ["Problem type", "problem"],
-  ["Which dataset", "dataset"],
-  ["Ratio train data", "percTrainData"],
-  ["Noise level", "noise"],
-  ["Batch size", "batchSize"],
-  ["# of hidden layers", "numHiddenLayers"],
+  ["显示测试数据", "showTestData"],
+  ["离散化输出", "discretize"],
+  ["运行按钮", "playButton"],
+  ["单步按钮", "stepButton"],
+  ["重置按钮", "resetButton"],
+  ["学习率", "learningRate"],
+  ["激活函数", "activation"],
+  ["正则化", "regularization"],
+  ["正则化率", "regularizationRate"],
+  ["问题类型", "problem"],
+  ["选择数据集", "dataset"],
+  ["训练数据比例", "percTrainData"],
+  ["噪声水平", "noise"],
+  ["批次大小", "batchSize"],
+  ["隐藏层数", "numHiddenLayers"],
 ];
 
 class Player {
@@ -696,9 +696,8 @@ function addPlusMinusControl(x: number, layerIdx: number) {
       .attr("class", "material-icons")
       .text("remove");
 
-  let suffix = state.networkShape[i] > 1 ? "s" : "";
   div.append("div").text(
-    state.networkShape[i] + " neuron" + suffix
+    state.networkShape[i] + " 个神经元"
   );
 }
 
@@ -734,7 +733,7 @@ function updateHoverCard(type: HoverType, nodeOrLink?: nn.Node | nn.Link,
   let value = (type === HoverType.WEIGHT) ?
     (nodeOrLink as nn.Link).weight :
     (nodeOrLink as nn.Node).bias;
-  let name = (type === HoverType.WEIGHT) ? "Weight" : "Bias";
+  let name = (type === HoverType.WEIGHT) ? "权重" : "偏置";
   hovercard.style({
     "left": `${coordinates[0] + 20}px`,
     "top": `${coordinates[1]}px`,
@@ -946,7 +945,7 @@ function reset(onStartup=false) {
   player.pause();
 
   let suffix = state.numHiddenLayers !== 1 ? "s" : "";
-  d3.select("#layers-label").text("Hidden layer" + suffix);
+  d3.select("#layers-label").text("隐藏层");
   d3.select("#num-layers").text(state.numHiddenLayers);
 
   // Make a simple network.
